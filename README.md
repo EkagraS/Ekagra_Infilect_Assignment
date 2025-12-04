@@ -4,26 +4,15 @@ This project was made as an assignment for the Android Engineer Intern role at I
 
 What the app does:
 
-Opens the camera as soon as the app starts
-Detects objects on the screen in real time
-Calculates the center point of each detected object
-Draws a green tick on that position
-Uses tracking IDs so the same object is not detected again when the camera comes back to it
+Opens the camera as soon as the app starts, detects objects on the screen in real time. Calculates the center point of each detected object and draws a green tick on that position. Uses tracking IDs so the same object is not detected again when the camera comes back to it
 
 Tech used:
 
-Kotlin
-CameraX
-ML Kit Object Detection
-Custom OverlayView using canvas for drawing ticks
+Kotlin, CameraX, ML Kit Object Detection, Custom OverlayView using canvas for drawing ticks
 
 How it works:
 
-ML Kit gives bounding boxes for visible objects
-I take the center point of each box
-The points are mapped to the overlay’s size
-Ticks are drawn through a custom Canvas view
-A map of tracking IDs is used to avoid duplicates
+ML Kit gives bounding boxes for visible objects then I take the center point of each box. The points are mapped to the overlay’s size then the ticks are drawn through a custom Canvas view. A map of tracking IDs is used to avoid duplicates
 
 How to run:
 Just open the project in Android Studio and run it on a physical device (camera permission is needed).
