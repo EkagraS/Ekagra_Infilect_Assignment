@@ -18,7 +18,7 @@ data class ScannedObj(val id: Int, val x: Float, val y: Float)
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var camView: PreviewView
+    lateinit var previewView: PreviewView
     lateinit var overlay: OverlayView
 
     val camPermission = Manifest.permission.CAMERA
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        camView = findViewById(R.id.previewView)
+        previewView = findViewById(R.id.previewView)
         overlay = findViewById(R.id.overlayView)
 
         if (ContextCompat.checkSelfPermission(this, camPermission) == PackageManager.PERMISSION_GRANTED) {
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         providerFuture.addListener({
             val provider = providerFuture.get()
             val preview = Preview.Builder().build()
-            preview.setSurfaceProvider(camView.surfaceProvider)
+            preview.setSurfaceProvider(previewView.surfaceProvider)
 
             val analysis = ImageAnalysis.Builder().setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build()
 
