@@ -28,6 +28,3 @@ A map of tracking IDs is used to avoid duplicates
 
 How to run:
 Just open the project in Android Studio and run it on a physical device (camera permission is needed).
-How to run
-
-Just open the project in Android Studio and run it on a physical device (camera permission is needed).
