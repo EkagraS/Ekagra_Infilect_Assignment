@@ -1,7 +1,6 @@
-Infilect – Android Assignment
+Infilect Android Assignment
 
-This project was made for the Android Engineer Intern assignment at Infilect.
-It’s a small demo app that uses the device camera to detect objects in real-time and shows a tick mark on each detected item. I’ve used CameraX for the camera preview and ML Kit’s object detection API for the detections.
+This project was made as an assignment for the Android Engineer Intern role at Infilect. It’s a small demo app that uses the device camera to detect objects in real-time and shows a tick mark on each detected item. I’ve used CameraX for the camera preview and ML Kit’s object detection API for the detections.
 
 What the app does:
 
@@ -11,14 +10,14 @@ Calculates the center point of each detected object
 Draws a green tick on that position
 Uses tracking IDs so the same object is not detected again when the camera comes back to it
 
-Tech used
+Tech used:
 
 Kotlin
 CameraX
-ML Kit Object Detection (stream mode)
-Custom OverlayView for drawing ticks
+ML Kit Object Detection
+Custom OverlayView using canvas for drawing ticks
 
-How it works (short explanation):
+How it works:
 
 ML Kit gives bounding boxes for visible objects
 I take the center point of each box
