@@ -24,7 +24,6 @@ class OverlayView @JvmOverloads constructor(context: Context, attrs: AttributeSe
         super.onDraw(canvas)
 
         for (p in points) {
-
             val hw = tickImg.width / 2f
             val hh = tickImg.height / 2f
 

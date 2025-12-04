@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var overlay: OverlayView
 
     val camPermission = Manifest.permission.CAMERA
-
     // store ids
     val scannedList = mutableMapOf<Int, ScannedObj>()
 
@@ -33,15 +32,11 @@ class MainActivity : AppCompatActivity() {
         camView = findViewById(R.id.previewView)
         overlay = findViewById(R.id.overlayView)
 
-        if (hasPermission()) {
+        if (ContextCompat.checkSelfPermission(this, camPermission) == PackageManager.PERMISSION_GRANTED) {
             startCam()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(camPermission), 200)
         }
-    }
-
-    fun hasPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(this, camPermission) == PackageManager.PERMISSION_GRANTED
     }
 
     fun startCam() {
@@ -49,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         providerFuture.addListener({
             val provider = providerFuture.get()
-
             val preview = Preview.Builder().build()
             preview.setSurfaceProvider(camView.surfaceProvider)
 
@@ -57,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
             // detector
             val options = ObjectDetectorOptions.Builder().setDetectorMode(ObjectDetectorOptions.STREAM_MODE).enableMultipleObjects().build()
-
             val detector = ObjectDetection.getClient(options)
 
             analysis.setAnalyzer(ContextCompat.getMainExecutor(this)) { img ->
